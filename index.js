@@ -4,9 +4,7 @@ var url = require('url');
 var request = require('request');
 
 var format = ".json";
-var host = 'http://api.wunderground.com/api/' + apikey;
-console.log('Host: ' + host);
-var path = "/conditions/q/" + query + format;
+var apikey = process.env.WU_ACCESS
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -19,7 +17,16 @@ app.get('/', function(req, res){
 });
 
 app.post('/post', function(req, res){
-  var parsed_url = host + path;
+  var query = req.body.text
+  var parsed_url = url.format({
+    pathname: 'http://api.wunderground.com/api/' + apikey + '/conditions/q/' + req.body.text + format,
+  });
+
+
+
+
+
+  host + path + query + format;
   console.log(parsed_url);
 
   request(parsed_url, function (error, response, body) {
