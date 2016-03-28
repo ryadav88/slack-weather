@@ -23,10 +23,6 @@ app.post('/post', function(req, res){
   });
 
 
-
-
-
-  host + path + query + format;
   console.log(parsed_url);
 
   request(parsed_url, function (error, response, body) {
