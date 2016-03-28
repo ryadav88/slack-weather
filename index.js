@@ -28,13 +28,13 @@ app.post('/post', function(req, res){
   request(parsed_url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
-      var first_url = data.current_observation.temp_f;
+      var first_url = data.current_observation.temperature_string;
       var weatherC = data.current_observation.weather
       var icon_url = data.current_observation.icon_url
 
       var body = {
         response_type: "in_channel",
-        pretext: icon_url
+        pretext: icon_url,
         text: "Temperature: " + first_url + "\n" + "Condition: " + weatherC
       };
 
