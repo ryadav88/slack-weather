@@ -30,9 +30,11 @@ app.post('/post', function(req, res){
       var data = JSON.parse(body);
       var first_url = data.current_observation.temp_f;
       var weatherC = data.current_observation.weather
+      var icon_url = data.current_observation.icon_url
 
       var body = {
         response_type: "in_channel",
+        pretext: icon_url
         text: "Temperature: " + first_url + "\n" + "Condition: " + weatherC
       };
 
