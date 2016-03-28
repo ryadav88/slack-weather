@@ -31,13 +31,14 @@ app.post('/post', function(req, res){
       var first_url = data.current_observation.temperature_string;
       var weatherC = data.current_observation.weather
       var icon_url = data.current_observation.icon_url
+      var location = data.current_observation.display_location.full
 
       var body = {
         response_type: "in_channel",
         "attachments": [
           {
-        "text": "Temperature: " + first_url + "\n" + "Condition: " + weatherC,
-        "thumb_url": icon_url,
+        "text": "Location: " + location + "\n" + "Temperature: " + first_url + "\n" + "Condition: " + weatherC,
+        "image_url": icon_url,
           }
         ]
       };
