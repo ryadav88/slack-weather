@@ -33,7 +33,7 @@ app.post('/post', function(req, res){
 
       var body = {
         response_type: "in_channel",
-        text: "Temperature: " + first_url + \n + "Condition: " + weatherC
+        text: "Temperature: " + first_url + "\n" + "Condition: " + weatherC
       };
 
       res.send(body);
