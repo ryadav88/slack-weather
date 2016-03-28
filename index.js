@@ -34,8 +34,12 @@ app.post('/post', function(req, res){
 
       var body = {
         response_type: "in_channel",
-        image_url: icon_url,
-        text: "Temperature: " + first_url + "\n" + "Condition: " + weatherC
+        "attachments": [
+          {
+        "text": "Temperature: " + first_url + "\n" + "Condition: " + weatherC,
+        "image_url": icon_url,
+          }
+        ]     
       };
 
       res.send(body);
