@@ -37,9 +37,9 @@ app.post('/post', function(req, res){
         "attachments": [
           {
         "text": "Temperature: " + first_url + "\n" + "Condition: " + weatherC,
-        "image_url": icon_url,
+        "thumb_url": icon_url,
           }
-        ]     
+        ]
       };
 
       res.send(body);
