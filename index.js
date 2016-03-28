@@ -28,11 +28,12 @@ app.post('/post', function(req, res){
   request(parsed_url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
-      var first_url = data.current_observation.station_id;
+      var first_url = data.current_observation.temp_f;
+      var weatherC = data.current_observation.weather
 
       var body = {
         response_type: "in_channel",
-        text: first_url
+        text: "Temperature: " + first_url + \n + "Condition: " + weatherC
       };
 
       res.send(body);
